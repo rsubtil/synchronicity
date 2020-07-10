@@ -1,6 +1,8 @@
-# GMTK 2020 Game Jam
+# SynchroniCity
 
-Entry for GMTK 2020 game jam, made with Godot Engine
+Entry for GMTK 2020 game jam, made with Godot Engine.
+
+A game about solving logistic problems in a city.
 
 ## File structure
 
