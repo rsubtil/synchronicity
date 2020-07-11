@@ -6,6 +6,7 @@ export(float, 1, 100) var speed;
 export(Color) var color setget set_color;
 
 var stopped := false
+var is_reset := false
 
 func set_color(_color):
 	print("called")
@@ -21,7 +22,10 @@ func _ready():
 	calibrate_path()
 	$Sprite.position = $Path2D.curve.get_point_position(0)
 	if !Engine.editor_hint:
-		start()
+		reset()
+		Game.connect("game_start", self, "start")
+		Game.connect("game_reset", self, "reset")
+		Game.connect("game_lost", self, "lost")
 
 func calibrate_path():
 	var pool : PoolVector2Array
@@ -62,14 +66,25 @@ func spawnEntity():
 	$Entities.add_child(entity_scene);
 
 func start():
+	is_reset = false
 	$SpawnOffset.start()
+	$PreviewLine.visible = false
+	$PreviewLine2.visible = false
 	yield($SpawnOffset, "timeout")
-	spawnEntity()
-	$SpawnInterval.start()
+	if !is_reset:
+		spawnEntity()
+		$SpawnInterval.start()
 
 func reset():
+	is_reset = true
 	for child in $Entities.get_children():
 		$Entities.remove_child(child)
+	$SpawnInterval.stop()
+	$PreviewLine.visible = true
+	$PreviewLine2.visible = true
+	stopped = false
+
+func lost():
 	$SpawnInterval.stop()
 
 func _on_SpawnInterval_timeout():

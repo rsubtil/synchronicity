@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://src/scenes/Game.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/smoke.png" type="Texture" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+blend_mode = 1
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,7 +18,26 @@ smoothing_speed = 10.0
 
 [node name="CurrentGame" type="Node2D" parent="."]
 
-[node name="Button" type="Button" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+visible = false
+material = SubResource( 1 )
+amount = 128
+explosiveness = 0.06
+randomness = 0.6
+lifetime_randomness = 0.4
+texture = ExtResource( 2 )
+emission_shape = 1
+emission_sphere_radius = 14.24
+direction = Vector2( 1, 1 )
+spread = 100.86
+gravity = Vector2( 0, -98 )
+linear_accel = 2.0
+damping = 12.64
+color = Color( 0.403922, 0.403922, 0.403922, 1 )
+
+[node name="StartButton" type="Button" parent="CanvasLayer"]
 margin_left = 866.683
 margin_top = 500.977
 margin_right = 990.683
@@ -23,3 +46,16 @@ text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ResetButton" type="Button" parent="CanvasLayer"]
+visible = false
+margin_left = 866.683
+margin_top = 500.977
+margin_right = 990.683
+margin_bottom = 560.977
+text = "Reset"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/ResetButton" to="." method="_on_ResetButton_pressed"]
