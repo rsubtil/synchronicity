@@ -35,11 +35,6 @@ func loadLevel(level : String):
 
 func _process(delta):
 	handle_input(delta)
-	match current_mode:
-		Mode.CONTROL:
-			$CanvasLayer/ControlMode.tick(delta)
-		Mode.SIMULATION:
-			$CanvasLayer/SimulationMode.tick(delta)
 	
 func handle_input(delta):
 	if Input.is_action_pressed("ui_left"):

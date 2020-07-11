@@ -5,16 +5,23 @@ export(PackedScene) var entity;
 export(float, 1, 100) var speed;
 export(Color) var color setget set_color;
 
+var stopped := false
+
 func set_color(_color):
+	print("called")
 	color = _color
 	#$PreviewLine.default_color = color
 	$Sprite.modulate = color
+	$PreviewLine.default_color = color
+	$PreviewLine2.default_color = color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite/AnimationPlayer.play("flash")
 	calibrate_path()
 	$Sprite.position = $Path2D.curve.get_point_position(0)
+	if !Engine.editor_hint:
+		start()
 
 func calibrate_path():
 	var pool : PoolVector2Array
@@ -36,8 +43,11 @@ func calibrate_path():
 	
 	if Engine.editor_hint:
 		$PreviewLine.points = pool
+		$PreviewLine2.points = pool
 	else:
 		$PreviewLine.points = $Path2D.curve.tessellate()
+		$PreviewLine2.points = $Path2D.curve.tessellate()
+	$Sprite.position = $Path2D.curve.get_point_position(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -48,6 +58,7 @@ func _process(delta):
 
 func spawnEntity():
 	var entity_scene = entity.instance()
+	entity_scene.stopped = stopped;
 	$Entities.add_child(entity_scene);
 
 func start():

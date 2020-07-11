@@ -1,8 +1,6 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=2 format=2]
 
 [ext_resource path="res://src/scenes/Game.gd" type="Script" id=1]
-[ext_resource path="res://src/scenes/ControlMode.gd" type="Script" id=2]
-[ext_resource path="res://src/scenes/SimulationMode.gd" type="Script" id=3]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 1 )
@@ -16,20 +14,12 @@ smoothing_speed = 10.0
 
 [node name="CurrentGame" type="Node2D" parent="."]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ControlMode" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="SimulationMode" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-script = ExtResource( 3 )
+[node name="Button" type="Button" parent="."]
+margin_left = 866.683
+margin_top = 500.977
+margin_right = 990.683
+margin_bottom = 560.977
+text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
 }

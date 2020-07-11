@@ -34,60 +34,65 @@ tile_data = PoolIntArray( 196614, 1073741825, 0, 196615, 1073741825, 0, 196616, 
 [node name="Spawner" parent="Spawners/Cars" instance=ExtResource( 3 )]
 modulate = Color( 0.992157, 0.984314, 0.984314, 1 )
 entity = ExtResource( 1 )
-speed = 10.0
-color = Color( 0.992157, 0.0196078, 0.0196078, 1 )
+speed = 8.0
+color = Color( 0.988235, 0.027451, 0.027451, 1 )
 
 [node name="Path2D" parent="Spawners/Cars/Spawner" index="0"]
 curve = SubResource( 1 )
 
-[node name="SpawnOffset" parent="Spawners/Cars/Spawner" index="1"]
+[node name="SpawnOffset" parent="Spawners/Cars/Spawner" index="2"]
 wait_time = 0.001
 
 [node name="SpawnInterval" parent="Spawners/Cars/Spawner" index="3"]
 wait_time = 3.0
 
 [node name="Sprite" parent="Spawners/Cars/Spawner" index="4"]
-modulate = Color( 0.992157, 0.0196078, 0.0196078, 1 )
-self_modulate = Color( 1, 1, 1, 0.877887 )
-position = Vector2( 332.929, 335.317 )
+modulate = Color( 0.988235, 0.027451, 0.027451, 1 )
+self_modulate = Color( 1, 1, 1, 0.590876 )
+position = Vector2( 209.388, 340.131 )
 
 [node name="PreviewLine" parent="Spawners/Cars/Spawner" index="5"]
 points = PoolVector2Array( 208, 336, 688, 336, 688, 112 )
-default_color = Color( 0.976471, 0.0117647, 0.0117647, 1 )
+default_color = Color( 0.988235, 0.027451, 0.027451, 1 )
 
 [node name="PreviewLine2" parent="Spawners/Cars/Spawner" index="6"]
-default_color = Color( 1, 0.00392157, 0.00392157, 1 )
+points = PoolVector2Array( 208, 336, 688, 336, 688, 112 )
+default_color = Color( 0.988235, 0.027451, 0.027451, 1 )
 
 [node name="Spawner2" parent="Spawners/Cars" instance=ExtResource( 3 )]
 entity = ExtResource( 1 )
 speed = 16.0
-color = Color( 1, 0.0117647, 0.0117647, 1 )
+color = Color( 0.972549, 0.027451, 0.027451, 1 )
 
 [node name="Path2D" parent="Spawners/Cars/Spawner2" index="0"]
 curve = SubResource( 2 )
 
-[node name="SpawnOffset" parent="Spawners/Cars/Spawner2" index="1"]
+[node name="SpawnOffset" parent="Spawners/Cars/Spawner2" index="2"]
 wait_time = 0.5
 
 [node name="SpawnInterval" parent="Spawners/Cars/Spawner2" index="3"]
 wait_time = 2.0
 
 [node name="Sprite" parent="Spawners/Cars/Spawner2" index="4"]
-modulate = Color( 1, 0.0117647, 0.0117647, 1 )
-self_modulate = Color( 1, 1, 1, 0.877887 )
+modulate = Color( 0.972549, 0.027451, 0.027451, 1 )
+self_modulate = Color( 1, 1, 1, 0.590876 )
 position = Vector2( 688, 528 )
 
 [node name="PreviewLine" parent="Spawners/Cars/Spawner2" index="5"]
 points = PoolVector2Array( 688, 528, 688, 336, 1008, 336 )
-default_color = Color( 1, 0, 0, 1 )
+default_color = Color( 0.972549, 0.027451, 0.027451, 1 )
+
+[node name="PreviewLine2" parent="Spawners/Cars/Spawner2" index="6"]
+points = PoolVector2Array( 688, 528, 688, 336, 1008, 336 )
+default_color = Color( 0.972549, 0.027451, 0.027451, 1 )
 
 [node name="Pedestrians" type="Node" parent="Spawners"]
 
 [node name="Spawner3" parent="Spawners/Pedestrians" instance=ExtResource( 3 )]
 modulate = Color( 0.992157, 0.992157, 0.988235, 1 )
 entity = ExtResource( 4 )
-speed = 6.0
-color = Color( 0.592157, 0.988235, 0.0117647, 1 )
+speed = 3.0
+color = Color( 0.537255, 0.992157, 0.0352941, 1 )
 
 [node name="Path2D" parent="Spawners/Pedestrians/Spawner3" index="0"]
 curve = SubResource( 3 )
@@ -96,13 +101,17 @@ curve = SubResource( 3 )
 wait_time = 3.0
 
 [node name="Sprite" parent="Spawners/Pedestrians/Spawner3" index="4"]
-modulate = Color( 0.592157, 0.988235, 0.0117647, 1 )
-self_modulate = Color( 1, 1, 1, 0.877887 )
+modulate = Color( 0.537255, 0.992157, 0.0352941, 1 )
+self_modulate = Color( 1, 1, 1, 0.590876 )
 position = Vector2( 202.707, 234.2 )
 
 [node name="PreviewLine" parent="Spawners/Pedestrians/Spawner3" index="5"]
 points = PoolVector2Array( 208, 240, 400, 240, 400, 432 )
-default_color = Color( 1, 0, 1, 1 )
+default_color = Color( 0.537255, 0.992157, 0.0352941, 1 )
+
+[node name="PreviewLine2" parent="Spawners/Pedestrians/Spawner3" index="6"]
+points = PoolVector2Array( 208, 240, 400, 240, 400, 432 )
+default_color = Color( 0.537255, 0.992157, 0.0352941, 1 )
 
 [node name="Semaphors" type="Node" parent="."]
 
