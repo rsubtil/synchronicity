@@ -1,4 +1,4 @@
-extends Sprite
+extends Node2D
 
 onready var path := $"../../Path2D"
 onready var path_follow := PathFollow2D.new()
@@ -17,7 +17,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	position = path_follow.global_position
+	rotation = path_follow.global_rotation
 	path_follow.offset += delta * speed * 10
 	if(is_equal_approx(path_follow.unit_offset, 1.0)):
 		path_follow.queue_free()
 		queue_free()
+
+func _on_Area2D_area_entered(area):
+	print("assa")
+	var cross_scene = load("res://src/objects/debug/Cross.tscn").instance()
+	cross_scene.position = position
+	$"..".add_child(cross_scene)
