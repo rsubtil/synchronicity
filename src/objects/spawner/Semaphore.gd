@@ -30,14 +30,13 @@ func set_state(state):
 
 
 func _on_Area2D_input_event(viewport, event, shape_idx):
-	print("as")
 	if event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			var state = State.PASS if current_state == State.STOP else State.STOP
 			set_state(state);
 
-func _on_Area2D_area_entered(area):
-	if area.get_class() == blocked_entity:
+func _on_StopArea_area_entered(area):
+	if area.is_in_group(blocked_entity):
 		if current_state == State.STOP:
 			stopped_entities.append(area);
-			area.semaphore_block()
+			area.semaphore_stop()

@@ -11,6 +11,8 @@ export(PackedScene) var entity;
 export(float, 1, 100) var speed;
 export(Color) var color setget set_color;
 
+var stopped := false
+
 func set_color(_color):
 	print(\"called\")
 	color = _color
@@ -60,6 +62,7 @@ func _process(delta):
 
 func spawnEntity():
 	var entity_scene = entity.instance()
+	entity_scene.stopped = stopped;
 	$Entities.add_child(entity_scene);
 
 func start():
@@ -127,7 +130,7 @@ one_shot = true
 
 [node name="Sprite" type="Sprite" parent="."]
 modulate = Color( 0, 0, 0, 1 )
-self_modulate = Color( 1, 1, 1, 0.897738 )
+self_modulate = Color( 1, 1, 1, 0.521944 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]

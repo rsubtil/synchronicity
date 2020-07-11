@@ -11,4 +11,4 @@ func _ready():
 	pass # Replace with function body.
 
 func tick(delta):
-	print("ticking")
+	pass
