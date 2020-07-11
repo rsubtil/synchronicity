@@ -3,17 +3,18 @@ extends Node2D
 
 export(PackedScene) var entity;
 export(float, 1, 100) var speed;
+export(Color) var color setget set_color;
 
-var debug_line := Line2D.new()
+func set_color(_color):
+	color = _color
+	#$PreviewLine.default_color = color
+	$Sprite.modulate = color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Sprite/AnimationPlayer.play("flash")
 	calibrate_path()
-	debug_line.default_color = Color.magenta
-	if !Engine.editor_hint:
-		start()
-	else:
-		add_child(debug_line)
+	$Sprite.position = $Path2D.curve.get_point_position(0)
 
 func calibrate_path():
 	var pool : PoolVector2Array
@@ -34,9 +35,9 @@ func calibrate_path():
 			$Path2D.curve.set_point_position(i, pointPos)
 	
 	if Engine.editor_hint:
-		debug_line.points = pool
+		$PreviewLine.points = pool
 	else:
-		debug_line.points = $Path2D.curve.tessellate()
+		$PreviewLine.points = $Path2D.curve.tessellate()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -55,6 +56,10 @@ func start():
 	spawnEntity()
 	$SpawnInterval.start()
 
+func reset():
+	for child in $Entities.get_children():
+		$Entities.remove_child(child)
+	$SpawnInterval.stop()
 
 func _on_SpawnInterval_timeout():
 	spawnEntity()

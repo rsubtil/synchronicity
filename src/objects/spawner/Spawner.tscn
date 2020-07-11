@@ -1,14 +1,122 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://src/objects/spawner/Spawner.gd" type="Script" id=1]
+[ext_resource path="res://assets/textures/arrow.png" type="Texture" id=1]
+[ext_resource path="res://assets/textures/spawnerMarker.png" type="Texture" id=2]
 
+[sub_resource type="GDScript" id=6]
+script/source = "tool
+extends Node2D
 
+export(PackedScene) var entity;
+export(float, 1, 100) var speed;
+export(Color) var color setget set_color;
+
+func set_color(_color):
+	print(\"called\")
+	color = _color
+	#$PreviewLine.default_color = color
+	$Sprite.modulate = color
+	$PreviewLine.default_color = color
+	$PreviewLine2.default_color = color
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	$Sprite/AnimationPlayer.play(\"flash\")
+	calibrate_path()
+	start()
+	$Sprite.position = $Path2D.curve.get_point_position(0)
+func calibrate_path():
+	var pool : PoolVector2Array
+	for i in range($Path2D.curve.get_point_count()):
+		var pointPos = $Path2D.curve.get_point_position(i)
+		if(pointPos.x > 0):
+			pointPos.x = floor(pointPos.x / 32) * 32 + 16
+		else:
+			pointPos.x = ceil(pointPos.x / 32) * 32 + 16
+		if(pointPos.y > 0):
+			pointPos.y = floor(pointPos.y / 32) * 32 + 16
+		else:
+			pointPos.y = ceil(pointPos.y / 32) * 32 + 16
+		
+		if Engine.editor_hint:
+			pool.append(pointPos)
+		else:
+			$Path2D.curve.set_point_position(i, pointPos)
+	
+	if Engine.editor_hint:
+		$PreviewLine.points = pool
+		$PreviewLine2.points = pool
+	else:
+		$PreviewLine.points = $Path2D.curve.tessellate()
+		$PreviewLine2.points = $Path2D.curve.tessellate()
+	$Sprite.position = $Path2D.curve.get_point_position(0)
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	if Engine.editor_hint:
+		calibrate_path()
+	else:
+		pass
+
+func spawnEntity():
+	var entity_scene = entity.instance()
+	$Entities.add_child(entity_scene);
+
+func start():
+	$SpawnOffset.start()
+	yield($SpawnOffset, \"timeout\")
+	spawnEntity()
+	$SpawnInterval.start()
+
+func reset():
+	for child in $Entities.get_children():
+		$Entities.remove_child(child)
+	$SpawnInterval.stop()
+
+func _on_SpawnInterval_timeout():
+	spawnEntity()
+"
+
+[sub_resource type="Curve2D" id=2]
+_data = {
+"points": PoolVector2Array(  )
+}
+
+[sub_resource type="Animation" id=3]
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0.478431 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform vec4 customColor;
+
+void fragment() {
+	vec2 newUV = UV;
+	newUV.x -= TIME;
+	COLOR = texture(TEXTURE, newUV);
+}"
+
+[sub_resource type="ShaderMaterial" id=5]
+shader = SubResource( 4 )
+shader_param/customColor = Plane( 255, 0, 0, 0 )
 
 [node name="Spawner" type="Node2D"]
-script = ExtResource( 1 )
-speed = 1.0
+script = SubResource( 6 )
 
 [node name="Path2D" type="Path2D" parent="."]
+curve = SubResource( 2 )
 
 [node name="SpawnOffset" type="Timer" parent="."]
 one_shot = true
@@ -16,4 +124,32 @@ one_shot = true
 [node name="Entities" type="Node" parent="."]
 
 [node name="SpawnInterval" type="Timer" parent="."]
+
+[node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+self_modulate = Color( 1, 1, 1, 0.897738 )
+texture = ExtResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+anims/flash = SubResource( 3 )
+
+[node name="PreviewLine" type="Line2D" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.423529 )
+light_mask = -2147483647
+material = SubResource( 5 )
+width = 25.0
+default_color = Color( 0.560784, 0.615686, 0.905882, 1 )
+texture = ExtResource( 1 )
+texture_mode = 1
+joint_mode = 2
+
+[node name="PreviewLine2" type="Line2D" parent="."]
+visible = false
+modulate = Color( 1, 1, 1, 0.423529 )
+light_mask = -2147483647
+width = 25.0
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
 [connection signal="timeout" from="SpawnInterval" to="." method="_on_SpawnInterval_timeout"]

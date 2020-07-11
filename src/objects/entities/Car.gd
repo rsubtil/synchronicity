@@ -1,5 +1,7 @@
 extends Node2D
 
+class_name Car
+
 onready var path := $"../../Path2D"
 onready var path_follow := PathFollow2D.new()
 onready var speed = $"../..".speed

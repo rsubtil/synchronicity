@@ -29,6 +29,9 @@ margin_bottom = 308.0
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 0
 text = "Start"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="ExitButton" type="Button" parent="."]
 margin_left = 358.0
