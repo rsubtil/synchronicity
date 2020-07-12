@@ -11,5 +11,5 @@ dest_files=[ "res://.import/SyncroniCityMenu.ogg-dc130902227c9901c46e4f218f03b83
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
