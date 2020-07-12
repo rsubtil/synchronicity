@@ -139,7 +139,7 @@ wait_time = 5.0
 position = Vector2( 975.868, 675.705 )
 
 [node name="Sprite" parent="Cars/Spawner/SpritePivot" index="0"]
-self_modulate = Color( 1, 1, 1, 0.823499 )
+self_modulate = Color( 1, 1, 1, 0.735508 )
 
 [node name="PreviewLine" parent="Cars/Spawner" index="5"]
 points = PoolVector2Array( 976, 688, 976, 272, 528, 272, 528, 16 )
@@ -161,7 +161,7 @@ wait_time = 5.0
 position = Vector2( -21.1786, 302.304 )
 
 [node name="Sprite" parent="Cars/Spawner2/SpritePivot" index="0"]
-self_modulate = Color( 1, 1, 1, 0.823499 )
+self_modulate = Color( 1, 1, 1, 0.735508 )
 
 [node name="AnimationPlayer" parent="Cars/Spawner2/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 3 )
@@ -186,7 +186,7 @@ wait_time = 5.0
 position = Vector2( 496.802, -22.6715 )
 
 [node name="Sprite" parent="Cars/Spawner3/SpritePivot" index="0"]
-self_modulate = Color( 1, 1, 1, 0.823499 )
+self_modulate = Color( 1, 1, 1, 0.735508 )
 
 [node name="AnimationPlayer" parent="Cars/Spawner3/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 5 )
@@ -214,7 +214,7 @@ wait_time = 5.0
 position = Vector2( 532.605, 619.198 )
 
 [node name="Sprite" parent="Cars/Spawner4/SpritePivot" index="0"]
-self_modulate = Color( 1, 1, 1, 0.823499 )
+self_modulate = Color( 1, 1, 1, 0.735508 )
 
 [node name="AnimationPlayer" parent="Cars/Spawner4/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 7 )
@@ -242,7 +242,7 @@ wait_time = 1.5
 position = Vector2( -20.1085, 204.382 )
 
 [node name="Sprite" parent="Cars/Spawner5/SpritePivot" index="0"]
-self_modulate = Color( 1, 1, 1, 0.980638 )
+self_modulate = Color( 1, 1, 1, 0.735508 )
 
 [node name="PreviewLine" parent="Cars/Spawner5" index="5"]
 points = PoolVector2Array( 16, 208, 144, 208, 144, 16, 464, 16 )
@@ -267,7 +267,7 @@ wait_time = 1.5
 position = Vector2( 333.632, 369.341 )
 
 [node name="Sprite" parent="Cars/Spawner6/SpritePivot" index="0"]
-self_modulate = Color( 1, 1, 1, 0.927795 )
+self_modulate = Color( 1, 1, 1, 0.735508 )
 
 [node name="AnimationPlayer" parent="Cars/Spawner6/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 10 )
@@ -295,7 +295,7 @@ wait_time = 1.5
 position = Vector2( 361.608, 244.515 )
 
 [node name="Sprite" parent="Cars/Spawner7/SpritePivot" index="0"]
-self_modulate = Color( 1, 1, 1, 0.625706 )
+self_modulate = Color( 1, 1, 1, 0.735508 )
 
 [node name="AnimationPlayer" parent="Cars/Spawner7/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 12 )

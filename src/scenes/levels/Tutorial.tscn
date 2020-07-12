@@ -83,7 +83,7 @@ position = Vector2( 943.741, 176.62 )
 
 [node name="Sprite" parent="Spawners/CArs/Spawner/SpritePivot" index="0"]
 modulate = Color( 0.980392, 0.027451, 0.027451, 1 )
-self_modulate = Color( 1, 1, 1, 0.97348 )
+self_modulate = Color( 1, 1, 1, 0.956277 )
 
 [node name="PreviewLine" parent="Spawners/CArs/Spawner" index="5"]
 points = PoolVector2Array( 944, 176, 80, 176 )
@@ -109,7 +109,7 @@ position = Vector2( 527.271, 462.276 )
 
 [node name="Sprite" parent="Spawners/CArs/Spawner2/SpritePivot" index="0"]
 modulate = Color( 0.980392, 0.027451, 0.027451, 1 )
-self_modulate = Color( 1, 1, 1, 0.97348 )
+self_modulate = Color( 1, 1, 1, 0.956277 )
 
 [node name="AnimationPlayer" parent="Spawners/CArs/Spawner2/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 3 )
@@ -140,7 +140,7 @@ position = Vector2( 620.565, 274.323 )
 
 [node name="Sprite" parent="Spawners/Pedestrians/Spawner3/SpritePivot" index="0"]
 modulate = Color( 0.54902, 0.980392, 0.027451, 1 )
-self_modulate = Color( 1, 1, 1, 0.97348 )
+self_modulate = Color( 1, 1, 1, 0.956277 )
 
 [node name="AnimationPlayer" parent="Spawners/Pedestrians/Spawner3/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 5 )

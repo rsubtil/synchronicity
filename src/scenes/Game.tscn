@@ -203,7 +203,7 @@ align = 1
 autowrap = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color( 0.823529, 0.823529, 0.823529, 1 )
+color = Color( 0.807843, 0.807843, 0.807843, 1 )
 
 [node name="LightPivot" type="Position2D" parent="."]
 position = Vector2( 543.206, 295.206 )
