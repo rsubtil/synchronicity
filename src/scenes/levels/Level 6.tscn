@@ -67,7 +67,7 @@ position = Vector2( 370.86, 35.5178 )
 
 [node name="Sprite" parent="Cars/Spawner/SpritePivot" index="0"]
 modulate = Color( 0.835294, 0.12549, 0.12549, 1 )
-self_modulate = Color( 1, 1, 1, 0.857564 )
+self_modulate = Color( 1, 1, 1, 0.576317 )
 
 [node name="PreviewLine" parent="Cars/Spawner" index="5"]
 points = PoolVector2Array( 368, 48, 368, 112, 624, 112, 624, 240, 752, 240, 752, 592 )
@@ -92,7 +92,7 @@ wait_time = 8.0
 position = Vector2( 20.9929, 338.596 )
 
 [node name="Sprite" parent="Cars/Spawner2/SpritePivot" index="0"]
-self_modulate = Color( 1, 1, 1, 0.857564 )
+self_modulate = Color( 1, 1, 1, 0.576317 )
 
 [node name="PreviewLine" parent="Cars/Spawner2" index="5"]
 points = PoolVector2Array( 16, 336, 144, 336, 144, 528, 784, 528, 784, 240, 1008, 240 )
@@ -117,7 +117,7 @@ position = Vector2( 880.712, 39.9178 )
 
 [node name="Sprite" parent="Cars/Spawner3/SpritePivot" index="0"]
 modulate = Color( 0.443137, 0.85098, 0.164706, 1 )
-self_modulate = Color( 1, 1, 1, 0.857564 )
+self_modulate = Color( 1, 1, 1, 0.576317 )
 
 [node name="PreviewLine" parent="Cars/Spawner3" index="5"]
 points = PoolVector2Array( 880, 48, 880, 208, 624, 208, 624, 400, 400, 400, 400, 304, 16, 304 )
@@ -146,7 +146,7 @@ position = Vector2( 714.694, 582.968 )
 
 [node name="Sprite" parent="Pedestrians/Spawner4/SpritePivot" index="0"]
 modulate = Color( 0.141176, 0.741176, 0.658824, 1 )
-self_modulate = Color( 1, 1, 1, 0.857564 )
+self_modulate = Color( 1, 1, 1, 0.576317 )
 
 [node name="PreviewLine" parent="Pedestrians/Spawner4" index="5"]
 points = PoolVector2Array( 720, 592, 400, 592, 400, 496, 336, 464 )
@@ -172,7 +172,7 @@ position = Vector2( 200.642, 207.752 )
 
 [node name="Sprite" parent="Pedestrians/Spawner5/SpritePivot" index="0"]
 modulate = Color( 0.054902, 0.027451, 0.968627, 1 )
-self_modulate = Color( 1, 1, 1, 0.857564 )
+self_modulate = Color( 1, 1, 1, 0.576317 )
 
 [node name="PreviewLine" parent="Pedestrians/Spawner5" index="5"]
 points = PoolVector2Array( 208, 208, 208, 144, 336, 144, 336, 208, 464, 208, 464, 144, 560, 144, 560, 208, 560, 336, 688, 336, 688, 464, 624, 464, 624, 496 )
@@ -199,7 +199,7 @@ position = Vector2( 819.091, 562.918 )
 
 [node name="Sprite" parent="Pedestrians/Spawner/SpritePivot" index="0"]
 modulate = Color( 0.792157, 0.886275, 0.133333, 1 )
-self_modulate = Color( 1, 1, 1, 0.857564 )
+self_modulate = Color( 1, 1, 1, 0.576317 )
 
 [node name="PreviewLine" parent="Pedestrians/Spawner" index="5"]
 points = PoolVector2Array( 816, 560, 816, 400, 848, 304, 912, 304, 976, 304, 976, 176, 944, 176, 944, 16 )

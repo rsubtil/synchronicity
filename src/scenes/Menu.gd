@@ -42,21 +42,21 @@ func _on_BackButton_pressed():
 	$CanvasLayer/Settings.visible = false
 	$CanvasLayer/LevelSelect.visible = false
 
-func loadLevel(level):
+func loadLevel(level, is_tutorial = false):
 	visible = false
 	$CanvasLayer/Control.visible = false
 	$CanvasLayer/Panel.visible = false
 	$CanvasLayer/LevelSelect.visible = false
 	set_process(false)
 	Game.set_process(true)
-	Game.loadLevel(load(level), true)
+	Game.loadLevel(load(level), is_tutorial)
 	#$Tilemap.visible = false
 	$AudioStreamPlayer.stop()
 	remove_child(curr_back)
 	curr_back.queue_free()
 
 func _on_TutButton_pressed():
-	loadLevel("res://src/scenes/levels/Tutorial.tscn")
+	loadLevel("res://src/scenes/levels/Tutorial.tscn", true)
 
 func _on_Level1_pressed():
 	loadLevel("res://src/scenes/levels/Level 1.tscn")

@@ -54,7 +54,7 @@ one_shot = true
 
 [node name="Sprite" type="Sprite" parent="SpritePivot"]
 modulate = Color( 0, 0, 0, 1 )
-self_modulate = Color( 1, 1, 1, 0.517056 )
+self_modulate = Color( 1, 1, 1, 0.915466 )
 texture = ExtResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="SpritePivot/Sprite"]
