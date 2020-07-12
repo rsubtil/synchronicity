@@ -23,7 +23,7 @@ func _on_StartButton_pressed():
 	$CanvasLayer/Control.visible = false
 	set_process(false)
 	Game.set_process(true)
-	Game.loadLevel(load("res://src/scenes/levels/Tutorial.tscn"), true)
+	Game.loadLevel(load("res://src/scenes/levels/Level 3.tscn"), true)
 	#$Tilemap.visible = false
 	$AudioStreamPlayer.stop()
 	remove_child(curr_back)
