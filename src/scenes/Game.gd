@@ -46,7 +46,7 @@ func _ready():
 	set_process(false)
 
 func set_score_text():
-	$CanvasLayer/ColorRect/Label.text = "Score: " + str(score) + "/" + str(target_score)
+	$CanvasLayer/ColorRect/ScoreLabel.text = "Score: " + str(score) + "/" + str(target_score)
 
 func set_current_mode(_current_mode):
 	current_mode = _current_mode
@@ -84,6 +84,7 @@ func loadLevel(level : PackedScene, is_tutorial):
 	$AudioSystem.play()
 	score = 0
 	set_score_text()
+	$CanvasLayer/ColorRect/NameLabel.text = "Level: " + level_scene.level_name
 
 func _process(delta):
 	handle_input(delta)

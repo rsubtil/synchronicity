@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://src/scenes/FullscreenBox.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LiberationSerif-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://src/scenes/SFXSlider.gd" type="Script" id=5]
 [ext_resource path="res://src/scenes/MusicSlider.gd" type="Script" id=6]
 [ext_resource path="res://assets/music/SyncroniCityCollisionEffect.wav" type="AudioStream" id=7]
+[ext_resource path="res://assets/textures/tutorialIcon.png" type="Texture" id=8]
+[ext_resource path="res://assets/textures/skull.png" type="Texture" id=9]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -121,9 +123,70 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
-margin_right = 12.0
-margin_bottom = 20.0
+[node name="TutButton" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_left = 193.0
+margin_top = 10.4051
+margin_right = 273.0
+margin_bottom = 90.4051
+icon = ExtResource( 8 )
+expand_icon = true
+
+[node name="Level2" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_left = 202.443
+margin_top = 113.122
+margin_right = 262.443
+margin_bottom = 173.122
+text = "2"
+expand_icon = true
+
+[node name="Level1" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_left = 44.8985
+margin_top = 115.5
+margin_right = 104.898
+margin_bottom = 175.5
+text = "1"
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level3" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_left = 365.602
+margin_top = 115.5
+margin_right = 425.602
+margin_bottom = 175.5
+text = "3"
+expand_icon = true
+
+[node name="Level4" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_left = 127.898
+margin_top = 197.5
+margin_right = 187.898
+margin_bottom = 257.5
+text = "4"
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Level6" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_left = 202.443
+margin_top = 287.5
+margin_right = 262.443
+margin_bottom = 347.5
+icon = ExtResource( 9 )
+expand_icon = true
+
+[node name="Level5" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_left = 287.252
+margin_top = 197.5
+margin_right = 347.252
+margin_bottom = 257.5
+text = "5"
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
 [node name="Settings" type="Control" parent="CanvasLayer"]
 visible = false
@@ -226,6 +289,13 @@ bus = "Music"
 [connection signal="pressed" from="CanvasLayer/Control/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/ExitButton" to="." method="_on_ExitButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/BackButton" to="." method="_on_BackButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/TutButton" to="." method="_on_TutButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/Level2" to="." method="_on_Level2_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/Level1" to="." method="_on_Level1_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/Level3" to="." method="_on_Level3_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/Level4" to="." method="_on_Level4_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/Level6" to="." method="_on_Level6_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/Level5" to="." method="_on_Level5_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/Panel/VBoxContainer/FullscreenBox" to="CanvasLayer/Settings/Panel/VBoxContainer/FullscreenBox" method="_on_FullscreenBox_pressed"]
 [connection signal="value_changed" from="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2/SFXSlider" to="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2/SFXSlider" method="_on_SFXSlider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer/MusicSlider" to="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer/MusicSlider" method="_on_MusicSlider_value_changed"]
