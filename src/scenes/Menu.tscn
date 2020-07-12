@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
+[ext_resource path="res://src/scenes/FullscreenBox.gd" type="Script" id=1]
 [ext_resource path="res://assets/fonts/LiberationSerif-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://assets/music/SyncroniCityMenu.ogg" type="AudioStream" id=3]
 [ext_resource path="res://src/scenes/Menu.gd" type="Script" id=4]
+[ext_resource path="res://src/scenes/SFXSlider.gd" type="Script" id=5]
+[ext_resource path="res://src/scenes/MusicSlider.gd" type="Script" id=6]
+[ext_resource path="res://assets/music/SyncroniCityCollisionEffect.wav" type="AudioStream" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -18,14 +22,7 @@ __meta__ = {
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
-margin_right = 40.0
-margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Panel" type="ColorRect" parent="CanvasLayer/Control"]
+[node name="Panel" type="ColorRect" parent="CanvasLayer"]
 margin_left = 262.0
 margin_right = 762.0
 margin_bottom = 100.0
@@ -35,7 +32,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Label" type="Label" parent="CanvasLayer/Control/Panel"]
+[node name="Label" type="Label" parent="CanvasLayer/Panel"]
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -182.864
@@ -48,11 +45,18 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Control" type="Control" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="StartButton" type="Button" parent="CanvasLayer/Control"]
 margin_left = 356.0
-margin_top = 208.0
+margin_top = 155.027
 margin_right = 656.0
-margin_bottom = 308.0
+margin_bottom = 255.027
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 0
 text = "Start"
@@ -60,11 +64,23 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="OptionsButton" type="Button" parent="CanvasLayer/Control"]
+margin_left = 358.119
+margin_top = 277.925
+margin_right = 658.119
+margin_bottom = 377.925
+rect_min_size = Vector2( 300, 100 )
+size_flags_horizontal = 0
+text = "Options"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="ExitButton" type="Button" parent="CanvasLayer/Control"]
-margin_left = 358.0
-margin_top = 352.0
-margin_right = 658.0
-margin_bottom = 452.0
+margin_left = 360.119
+margin_top = 409.211
+margin_right = 660.119
+margin_bottom = 509.211
 rect_min_size = Vector2( 300, 100 )
 size_flags_horizontal = 0
 text = "Exit"
@@ -72,9 +88,106 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Settings" type="Control" parent="CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Settings"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -241.0
+margin_top = -455.0
+margin_right = 241.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -102.5
+margin_top = -86.0
+margin_right = 102.5
+margin_bottom = 86.0
+custom_constants/separation = 40
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FullscreenBox" type="CheckBox" parent="CanvasLayer/Settings/Panel/VBoxContainer"]
+margin_right = 205.0
+margin_bottom = 24.0
+text = "Fullscreen"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="CanvasLayer/Settings/Panel/VBoxContainer"]
+margin_top = 64.0
+margin_right = 205.0
+margin_bottom = 98.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label2" type="Label" parent="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2"]
+margin_right = 205.0
+margin_bottom = 14.0
+text = "SFX Volume"
+
+[node name="SFXSlider" type="HSlider" parent="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2"]
+margin_top = 18.0
+margin_right = 205.0
+margin_bottom = 34.0
+value = 100.0
+script = ExtResource( 5 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2/SFXSlider"]
+stream = ExtResource( 7 )
+bus = "SFX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Settings/Panel/VBoxContainer"]
+margin_top = 138.0
+margin_right = 205.0
+margin_bottom = 172.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer"]
+margin_right = 205.0
+margin_bottom = 14.0
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer"]
+margin_top = 18.0
+margin_right = 205.0
+margin_bottom = 34.0
+value = 100.0
+script = ExtResource( 6 )
+
+[node name="BackButton" type="Button" parent="CanvasLayer/Settings/Panel"]
+margin_left = 44.8985
+margin_top = 32.5514
+margin_right = 127.898
+margin_bottom = 71.5514
+text = "Go back"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 autoplay = true
 bus = "Music"
 [connection signal="pressed" from="CanvasLayer/Control/StartButton" to="." method="_on_StartButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Control/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/Settings/Panel/VBoxContainer/FullscreenBox" to="CanvasLayer/Settings/Panel/VBoxContainer/FullscreenBox" method="_on_FullscreenBox_pressed"]
+[connection signal="value_changed" from="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2/SFXSlider" to="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2/SFXSlider" method="_on_SFXSlider_value_changed"]
+[connection signal="value_changed" from="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer/MusicSlider" to="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer/MusicSlider" method="_on_MusicSlider_value_changed"]
+[connection signal="pressed" from="CanvasLayer/Settings/Panel/BackButton" to="." method="_on_BackButton_pressed"]

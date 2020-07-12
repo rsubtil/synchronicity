@@ -21,9 +21,10 @@ func loadBackground():
 func _on_StartButton_pressed():
 	visible = false
 	$CanvasLayer/Control.visible = false
+	$CanvasLayer/Panel.visible = false
 	set_process(false)
 	Game.set_process(true)
-	Game.loadLevel(load("res://src/scenes/levels/Tutorial.tscn"), true)
+	Game.loadLevel(load("res://src/scenes/levels/Level 2.tscn"), true)
 	#$Tilemap.visible = false
 	$AudioStreamPlayer.stop()
 	remove_child(curr_back)
@@ -32,7 +33,18 @@ func _on_StartButton_pressed():
 func _on_game_over():
 	visible = true
 	$CanvasLayer/Control.visible = true
+	$CanvasLayer/Panel.visible = true
 	loadBackground()
 	$AudioStreamPlayer.play()
 	set_process(true)
 	Game.set_process(false)
+
+
+func _on_OptionsButton_pressed():
+	$CanvasLayer/Control.visible = false
+	$CanvasLayer/Settings.visible = true
+
+
+func _on_BackButton_pressed():
+	$CanvasLayer/Control.visible = true
+	$CanvasLayer/Settings.visible = false
