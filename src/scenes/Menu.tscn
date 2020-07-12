@@ -92,7 +92,6 @@ __meta__ = {
 }
 
 [node name="LevelSelect" type="Control" parent="CanvasLayer"]
-visible = false
 margin_left = 262.0
 margin_right = 302.0
 margin_bottom = 40.0

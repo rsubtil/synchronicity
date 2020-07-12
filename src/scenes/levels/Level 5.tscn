@@ -124,7 +124,7 @@ position = Vector2( 556.192, 7.71616 )
 
 [node name="Sprite" parent="Spawners/Cars/Spawner/SpritePivot" index="0"]
 modulate = Color( 0.980392, 0.0196078, 0.0196078, 1 )
-self_modulate = Color( 1, 1, 1, 0.523918 )
+self_modulate = Color( 1, 1, 1, 0.536382 )
 
 [node name="PreviewLine" parent="Spawners/Cars/Spawner" index="5"]
 points = PoolVector2Array( 560, 16, 560, 592 )
@@ -153,7 +153,7 @@ position = Vector2( 1007.52, 261.987 )
 
 [node name="Sprite" parent="Spawners/Cars/Spawner2/SpritePivot" index="0"]
 modulate = Color( 0.980392, 0.0196078, 0.0196078, 1 )
-self_modulate = Color( 1, 1, 1, 0.523918 )
+self_modulate = Color( 1, 1, 1, 0.536382 )
 
 [node name="AnimationPlayer" parent="Spawners/Cars/Spawner2/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 3 )
@@ -185,7 +185,7 @@ position = Vector2( 234.207, 596.876 )
 
 [node name="Sprite" parent="Spawners/Cars/Spawner3/SpritePivot" index="0"]
 modulate = Color( 0.980392, 0.0196078, 0.0196078, 1 )
-self_modulate = Color( 1, 1, 1, 0.523918 )
+self_modulate = Color( 1, 1, 1, 0.536382 )
 
 [node name="AnimationPlayer" parent="Spawners/Cars/Spawner3/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 5 )
@@ -219,7 +219,7 @@ position = Vector2( 374.203, 398.184 )
 
 [node name="Sprite" parent="Spawners/Pedestrians/Spawner4/SpritePivot" index="0"]
 modulate = Color( 0.619608, 0.988235, 0.027451, 1 )
-self_modulate = Color( 1, 1, 1, 0.523918 )
+self_modulate = Color( 1, 1, 1, 0.536382 )
 
 [node name="AnimationPlayer" parent="Spawners/Pedestrians/Spawner4/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 7 )
@@ -251,7 +251,7 @@ position = Vector2( 692.062, 491.524 )
 
 [node name="Sprite" parent="Spawners/Pedestrians/Spawner5/SpritePivot" index="0"]
 modulate = Color( 0.619608, 0.988235, 0.027451, 1 )
-self_modulate = Color( 1, 1, 1, 0.523918 )
+self_modulate = Color( 1, 1, 1, 0.536382 )
 
 [node name="AnimationPlayer" parent="Spawners/Pedestrians/Spawner5/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 9 )
