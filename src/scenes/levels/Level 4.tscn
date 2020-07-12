@@ -39,7 +39,7 @@ target_score = 15
 
 [node name="Spawner" parent="Spawners/Cars" instance=ExtResource( 4 )]
 entity = ExtResource( 3 )
-speed = 12.0
+speed = 11.0
 color = Color( 1, 0, 0, 1 )
 
 [node name="Path2D" parent="Spawners/Cars/Spawner" index="0"]
@@ -56,7 +56,7 @@ position = Vector2( 1008.82, 341.078 )
 
 [node name="Sprite" parent="Spawners/Cars/Spawner/SpritePivot" index="0"]
 modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 1, 1, 0.569245 )
+self_modulate = Color( 1, 1, 1, 0.541969 )
 
 [node name="PreviewLine" parent="Spawners/Cars/Spawner" index="5"]
 points = PoolVector2Array( 1008, 336, 16, 336 )
@@ -68,7 +68,7 @@ default_color = Color( 1, 0, 0, 1 )
 
 [node name="Spawner2" parent="Spawners/Cars" instance=ExtResource( 4 )]
 entity = ExtResource( 3 )
-speed = 12.0
+speed = 13.0
 color = Color( 1, 0, 0, 1 )
 
 [node name="Path2D" parent="Spawners/Cars/Spawner2" index="0"]
@@ -85,7 +85,7 @@ position = Vector2( 238.873, 21.8784 )
 
 [node name="Sprite" parent="Spawners/Cars/Spawner2/SpritePivot" index="0"]
 modulate = Color( 1, 0, 0, 1 )
-self_modulate = Color( 1, 1, 1, 0.569245 )
+self_modulate = Color( 1, 1, 1, 0.541969 )
 
 [node name="PreviewLine" parent="Spawners/Cars/Spawner2" index="5"]
 points = PoolVector2Array( 240, 16, 240, 400, 912, 400, 912, 592 )
@@ -113,7 +113,7 @@ position = Vector2( 36.6357, 274.523 )
 
 [node name="Sprite" parent="Spawners/Pedestrians/Spawner/SpritePivot" index="0"]
 modulate = Color( 0.592157, 1, 0, 1 )
-self_modulate = Color( 1, 1, 1, 0.569245 )
+self_modulate = Color( 1, 1, 1, 0.541969 )
 
 [node name="PreviewLine" parent="Spawners/Pedestrians/Spawner" index="5"]
 points = PoolVector2Array( 48, 272, 848, 272, 848, 592 )
