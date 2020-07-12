@@ -6,7 +6,7 @@
 [ext_resource path="res://src/objects/spawner/Spawner.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/objects/entities/Pedestrian.tscn" type="PackedScene" id=5]
 [ext_resource path="res://src/objects/spawner/Semaphore.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/scenes/levels/Level 3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/scenes/levels/Level 5.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -67,7 +67,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-level_name = "Level 1"
+level_name = "4"
 next_level = ExtResource( 7 )
 target_score = 15
 
@@ -91,7 +91,7 @@ position = Vector2( 818.152, 206.347 )
 
 [node name="Sprite" parent="Spawners/Cars/Spawner/SpritePivot" index="0"]
 modulate = Color( 0.976471, 0.0235294, 0.0235294, 1 )
-self_modulate = Color( 1, 1, 1, 0.514516 )
+self_modulate = Color( 1, 1, 1, 0.492711 )
 
 [node name="PreviewLine" parent="Spawners/Cars/Spawner" index="5"]
 points = PoolVector2Array( 816, 208, 528, 208, 528, 16 )
@@ -120,7 +120,7 @@ position = Vector2( 203.69, 245.046 )
 
 [node name="Sprite" parent="Spawners/Cars/Spawner2/SpritePivot" index="0"]
 modulate = Color( 0.976471, 0.0235294, 0.0235294, 1 )
-self_modulate = Color( 1, 1, 1, 0.514516 )
+self_modulate = Color( 1, 1, 1, 0.492711 )
 
 [node name="AnimationPlayer" parent="Spawners/Cars/Spawner2/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 3 )
@@ -152,7 +152,7 @@ position = Vector2( 529.327, 440.428 )
 
 [node name="Sprite" parent="Spawners/Cars/Spawner3/SpritePivot" index="0"]
 modulate = Color( 0.976471, 0.0235294, 0.0235294, 1 )
-self_modulate = Color( 1, 1, 1, 0.514516 )
+self_modulate = Color( 1, 1, 1, 0.492711 )
 
 [node name="AnimationPlayer" parent="Spawners/Cars/Spawner3/SpritePivot/Sprite" index="0"]
 anims/flash = SubResource( 5 )
@@ -186,7 +186,7 @@ position = Vector2( 289.527, 304.724 )
 
 [node name="Sprite" parent="Spawners/Pedestrians/Spawner/SpritePivot" index="0"]
 modulate = Color( 0.619608, 0.984314, 0.0352941, 1 )
-self_modulate = Color( 1, 1, 1, 0.514516 )
+self_modulate = Color( 1, 1, 1, 0.492711 )
 
 [node name="PreviewLine" parent="Spawners/Pedestrians/Spawner" index="5"]
 points = PoolVector2Array( 304, 304, 592, 304, 592, 16 )
