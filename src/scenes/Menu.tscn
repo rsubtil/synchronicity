@@ -24,8 +24,9 @@ __meta__ = {
 
 [node name="Panel" type="ColorRect" parent="CanvasLayer"]
 margin_left = 262.0
+margin_top = -1.0
 margin_right = 762.0
-margin_bottom = 100.0
+margin_bottom = 99.0
 rect_min_size = Vector2( 500, 100 )
 color = Color( 0.223529, 0.223529, 0.223529, 0.619608 )
 __meta__ = {
@@ -88,6 +89,42 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LevelSelect" type="Control" parent="CanvasLayer"]
+visible = false
+margin_left = 262.0
+margin_right = 302.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="CanvasLayer/LevelSelect"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -11.0
+margin_top = 105.0
+margin_right = 471.0
+margin_bottom = 508.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BackButton" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_left = 20.8569
+margin_top = 14.1666
+margin_right = 103.856
+margin_bottom = 53.1666
+text = "Go back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="CanvasLayer/LevelSelect/Panel"]
+margin_right = 12.0
+margin_bottom = 20.0
+
 [node name="Settings" type="Control" parent="CanvasLayer"]
 visible = false
 anchor_right = 1.0
@@ -104,6 +141,7 @@ anchor_bottom = 1.0
 margin_left = -241.0
 margin_top = -455.0
 margin_right = 241.0
+margin_bottom = -52.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -187,6 +225,7 @@ bus = "Music"
 [connection signal="pressed" from="CanvasLayer/Control/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Control/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/LevelSelect/Panel/BackButton" to="." method="_on_BackButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/Settings/Panel/VBoxContainer/FullscreenBox" to="CanvasLayer/Settings/Panel/VBoxContainer/FullscreenBox" method="_on_FullscreenBox_pressed"]
 [connection signal="value_changed" from="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2/SFXSlider" to="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer2/SFXSlider" method="_on_SFXSlider_value_changed"]
 [connection signal="value_changed" from="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer/MusicSlider" to="CanvasLayer/Settings/Panel/VBoxContainer/VBoxContainer/MusicSlider" method="_on_MusicSlider_value_changed"]
