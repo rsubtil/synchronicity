@@ -27,9 +27,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="CanvasLayer"]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
 visible = false
 material = SubResource( 1 )
 amount = 128
@@ -46,12 +44,14 @@ linear_accel = 2.0
 damping = 12.64
 color = Color( 0.403922, 0.403922, 0.403922, 1 )
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
 [node name="StartButton" type="Button" parent="CanvasLayer"]
 visible = false
-margin_left = 866.683
-margin_top = 500.977
-margin_right = 990.683
-margin_bottom = 560.977
+margin_left = 479.694
+margin_top = 266.896
+margin_right = 603.694
+margin_bottom = 326.896
 text = "Start"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -153,6 +153,40 @@ rect_min_size = Vector2( 150, 38 )
 size_flags_horizontal = 0
 text = "Next Level"
 icon = ExtResource( 8 )
+
+[node name="TutorialPopup" type="PopupDialog" parent="CanvasLayer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -258.754
+margin_top = -189.758
+margin_right = 313.246
+margin_bottom = 159.242
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="Label" type="Label" parent="CanvasLayer/TutorialPopup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -200.5
+margin_top = -117.5
+margin_right = 200.5
+margin_bottom = 117.5
+text = "Welcome to SynchroniCity!
+
+You are a top-notch AI in charge of controlling this city's traffic. Make everything so smoothly in town, or you'll be in trouble!
+
+Click on the \"semaphores\" to control the flow of both cars and pedestrians. Good management is the key to beating this game
+
+You can use WASD (or Arrow keys) to move the camera if needed.
+
+Good luck!"
+align = 1
+autowrap = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color( 0.823529, 0.823529, 0.823529, 1 )

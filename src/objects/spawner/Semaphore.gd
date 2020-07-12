@@ -41,3 +41,10 @@ func _on_StopArea_area_entered(area):
 		if current_state == State.STOP:
 			stopped_entities.append(area);
 			area.semaphore_stop()
+
+
+func _on_ClickArea_mouse_entered():
+	$Sprite.visible = true
+
+func _on_ClickArea_mouse_exited():
+	$Sprite.visible = false
