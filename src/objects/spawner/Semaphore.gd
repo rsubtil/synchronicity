@@ -1,3 +1,4 @@
+tool
 extends Node2D
 
 enum State {
@@ -15,7 +16,7 @@ export(State) var current_state setget set_state
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	set_state(current_state)
 
 func set_state(state):
 	current_state = state

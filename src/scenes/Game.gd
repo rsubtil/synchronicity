@@ -15,35 +15,52 @@ var current_mode = Mode.CONTROL setget set_current_mode
 var score := 0 setget set_score
 var target_score := 0
 
+var next_level
+
 export(float, 1, 25) var camera_speed
 
 func set_score(_score):
-	score = _score
-	if score >= target_score:
-		print("You win!")
+	if target_score > 0:
+		score = _score
+		score = clamp(score, -1, target_score)
+		var operand = (int(round(target_score / $AudioSystem.max_files)))
+		var field = (score / operand) + 1
+		$AudioSystem.setMusicLevel(field);
+		set_score_text()
+		if score == target_score:
+			$CanvasLayer/Win.visible = true
+			emit_signal("game_won")
 
 func game_over(position : Vector2):
-	$CanvasLayer/CPUParticles2D.position = position
-	$CanvasLayer/CPUParticles2D.visible = true
-	emit_signal("game_lost")
+	if score != target_score:
+		$CanvasLayer/CPUParticles2D.position = position
+		$CanvasLayer/CPUParticles2D.visible = true
+		$AudioStreamPlayer2D.position = position
+		$AudioStreamPlayer2D.play()
+		$AudioSystem.stopAll()
+		emit_signal("game_lost")
 
 func _ready():
 	set_process(false)
+
+func set_score_text():
+	$CanvasLayer/ColorRect/Label.text = "Score: " + str(score) + "/" + str(target_score)
 
 func set_current_mode(_current_mode):
 	current_mode = _current_mode
 	match current_mode:
 		Mode.CONTROL:
-			$CanvasLayer/ControlMode.visible = true
-			$CanvasLayer/SimulationMode.visible = false
+			$CanvasLayer/StartButton.visible = true
+			$CanvasLayer/ResetButton.visible = false
 		Mode.SIMULATION:
-			$CanvasLayer/ControlMode.visible = false
-			$CanvasLayer/SimulationMode.visible = true
+			$CanvasLayer/StartButton.visible = false
+			$CanvasLayer/ResetButton.visible = true
 
-func loadLevel(level : String):
+func loadLevel(level : PackedScene):
 	$Camera2D.smoothing_enabled = true
-	visible = true
-	var level_scene = load(level).instance()
+	set_visible(true)
+	var level_scene = level.instance()
+	next_level = level_scene.next_level
 	for child in $CurrentGame.get_children():
 		$CurrentGame.remove_child(child)
 	
@@ -51,6 +68,12 @@ func loadLevel(level : String):
 	target_score = level_scene.target_score
 	$CanvasLayer/StartButton.visible = true
 	$CanvasLayer/ResetButton.visible = false
+	$CanvasLayer/ColorRect.visible = true
+	
+	$AudioSystem.loadDynamicMusic("res://assets/music/SyncroniCitym", 4)
+	$AudioSystem.setMusicLevel(1)
+	$AudioSystem.play()
+	set_score_text()
 
 func _process(delta):
 	handle_input(delta)
@@ -64,14 +87,22 @@ func handle_input(delta):
 		$Camera2D.position.y -= delta * camera_speed * 20
 	if Input.is_action_pressed("ui_down"):
 		$Camera2D.position.y += delta * camera_speed * 20
+	if Input.is_action_just_pressed("music1"):
+		$AudioSystem.setMusicLevel(1)
+	if Input.is_action_just_pressed("music2"):
+		$AudioSystem.setMusicLevel(2)
+	if Input.is_action_just_pressed("music3"):
+		$AudioSystem.setMusicLevel(3)
+	if Input.is_action_just_pressed("music4"):
+		$AudioSystem.setMusicLevel(4)
 	if Input.is_action_just_pressed("ui_cancel"):
 		exitToMenu()
 
 func exitToMenu():
-	visible = false
-	for child in $CanvasLayer.get_children():
-		child.visible = false
+	set_visible(false)
+	$AudioSystem.stopAll()
 
+	$CanvasLayer/ColorRect.visible = false
 	$Camera2D.smoothing_enabled = false
 	$Camera2D.position = Vector2.ZERO
 	#$Camera2D.smoothing_enabled = true
@@ -88,4 +119,25 @@ func _on_ResetButton_pressed():
 	$CanvasLayer/CPUParticles2D.visible = false
 	$CanvasLayer/StartButton.visible = true
 	$CanvasLayer/ResetButton.visible = false
+	score = 0
+	set_score_text()
+	$AudioSystem.setMusicLevel(1)
+	$AudioSystem.play()
 	emit_signal("game_reset")
+
+func set_visible(value : bool):
+	.set_visible(value)
+	visible = value
+	for child in $CanvasLayer.get_children():
+		child.set_visible(value)
+	$CanvasLayer/CPUParticles2D.visible = false
+	$CanvasLayer/Win.visible = false
+	#set_current_mode(current_mode)
+
+func _on_NextButton_pressed():
+	$CanvasLayer/Win.visible = false
+	if next_level:
+		loadLevel(next_level)
+	else:
+		score = 0
+		exitToMenu()

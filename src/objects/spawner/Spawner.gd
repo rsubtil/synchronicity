@@ -12,15 +12,15 @@ func set_color(_color):
 	print("called")
 	color = _color
 	#$PreviewLine.default_color = color
-	$Sprite.modulate = color
+	$SpritePivot/Sprite.modulate = color
 	$PreviewLine.default_color = color
 	$PreviewLine2.default_color = color
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$Sprite/AnimationPlayer.play("flash")
+	$SpritePivot/Sprite/AnimationPlayer.play("flash")
 	calibrate_path()
-	$Sprite.position = $Path2D.curve.get_point_position(0)
+	$SpritePivot.position = $Path2D.curve.get_point_position(0)
 	if !Engine.editor_hint:
 		reset()
 		Game.connect("game_start", self, "start")
@@ -51,7 +51,7 @@ func calibrate_path():
 	else:
 		$PreviewLine.points = $Path2D.curve.tessellate()
 		$PreviewLine2.points = $Path2D.curve.tessellate()
-	$Sprite.position = $Path2D.curve.get_point_position(0)
+	$SpritePivot.position = $Path2D.curve.get_point_position(0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -70,6 +70,7 @@ func start():
 	$SpawnOffset.start()
 	$PreviewLine.visible = false
 	$PreviewLine2.visible = false
+	$SpritePivot/TextureProgress.set_process(true)
 	yield($SpawnOffset, "timeout")
 	if !is_reset:
 		spawnEntity()
@@ -80,6 +81,7 @@ func reset():
 	for child in $Entities.get_children():
 		$Entities.remove_child(child)
 	$SpawnInterval.stop()
+	$SpritePivot/TextureProgress.reset()
 	$PreviewLine.visible = true
 	$PreviewLine2.visible = true
 	stopped = false

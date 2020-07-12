@@ -7,6 +7,8 @@ onready var path_follow := PathFollow2D.new()
 onready var speed = $"../..".speed
 
 var stopped := false
+var game_lost := false
+var game_won := false
 
 func new():
 	self.speed = speed
@@ -23,11 +25,11 @@ func _ready():
 	Game.connect("game_lost", self, "_on_game_lost")
 
 func _on_game_lost():
-	stopped = true
+	game_lost = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	if !stopped:
+	if !stopped and !game_lost:
 		position = path_follow.global_position
 		rotation = path_follow.global_rotation
 		path_follow.offset += delta * speed * 10
@@ -39,9 +41,9 @@ func _process(delta):
 func semaphore_pass():
 	stopped = false
 	var node_path = $"../"
-	var found_itself = false
 	if node_path == null:
 		return
+	var found_itself = false
 	for child in node_path.get_children():
 		if child == self:
 			found_itself = true
@@ -52,9 +54,9 @@ func semaphore_pass():
 func semaphore_stop():
 	stopped = true
 	var node_path = $"../"
-	var found_itself = false
 	if node_path == null:
 		return
+	var found_itself = false
 	for child in node_path.get_children():
 		if child == self:
 			found_itself = true

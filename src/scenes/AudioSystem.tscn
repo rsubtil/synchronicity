@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://AudioSystem.gd" type="Script" id=1]
+
+[node name="AudioSystem" type="Node"]
+script = ExtResource( 1 )
+
+[node name="AudioStreamPlayer1" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
+[node name="AudioStreamPlayer2" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
+[node name="AudioStreamPlayer3" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
+[node name="AudioStreamPlayer4" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
+[node name="AudioStreamPlayer5" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+
+[node name="AudioStreamPlayer6" type="AudioStreamPlayer" parent="."]
+bus = "Music"
+[connection signal="finished" from="AudioStreamPlayer1" to="." method="_on_AudioStreamPlayer1_finished"]
+[connection signal="finished" from="AudioStreamPlayer2" to="." method="_on_AudioStreamPlayer2_finished"]
+[connection signal="finished" from="AudioStreamPlayer3" to="." method="_on_AudioStreamPlayer3_finished"]
+[connection signal="finished" from="AudioStreamPlayer4" to="." method="_on_AudioStreamPlayer4_finished"]

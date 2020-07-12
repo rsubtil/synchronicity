@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/SyncroniCityM2.ogg-7001105c1369ba0f52bb59b2c377eedf.oggstr"
+
+[deps]
+
+source_file="res://assets/music/SyncroniCityM2.ogg"
+dest_files=[ "res://.import/SyncroniCityM2.ogg-7001105c1369ba0f52bb59b2c377eedf.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
