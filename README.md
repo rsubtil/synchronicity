@@ -8,9 +8,9 @@ Solve traffic problems in a busy city!
 
 You are a sophisticated AI tasked with fixing the traffic from this city! Prevent the chaos by changing traffic lights. It won't be easy, though!
 
-This was an entry for GMTK 2020 game jam, made with Godot Engine.
+This was an entry for the GMTK 2020 game jam, made with Godot Engine.
 
-![](https://img.itch.zone/aW1hZ2UyL2phbS8xMTA2NS8zNDM0MTY1LnBuZw==/original/ZgF6D%2F.png)
+![](gmtk-logo.png)
 
 ## Screenshots
 
